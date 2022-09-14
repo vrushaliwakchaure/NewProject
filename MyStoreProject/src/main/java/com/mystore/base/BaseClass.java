@@ -13,14 +13,12 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.mystore.actiondrivers.Action;
@@ -36,7 +34,7 @@ public class BaseClass {
 	// Declare ThreadLocal Driver
 	public static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 	
-	@Parameters("browser")
+	
 	@BeforeSuite(groups= {"Smoke", "Sanity", "Regression"})
 	
 	public void loadConfig() throws IOException {
@@ -72,6 +70,7 @@ public class BaseClass {
 		//WebDriverManager.firefoxdriver().setup();
 		
 		//String browserName= prop.getProperty("browser");
+	
 		
 		if (browserName.equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -96,8 +95,8 @@ public class BaseClass {
 		
 	}
 	
-	@AfterSuite
-	public void afterSuite() {
+	@AfterSuite(groups = { "Smoke", "Regression","Sanity" })
+	public void afterSuite() throws IOException {
 		ExtentManager.endReport();
 	}
 	
