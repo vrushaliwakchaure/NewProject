@@ -1,7 +1,7 @@
 package com.mystore.utility;
 import org.apache.log4j.Logger;
 
-public class Log {
+public class Log{
 
 	// Initialize Log4j logs
 		public static Logger Log = Logger.getLogger(Log.class.getName());

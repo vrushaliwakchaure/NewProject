@@ -5,26 +5,17 @@
     <listener class-name="com.mystore.utility.ListenerClass"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="browser" value="Chrome"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.mystore.testcases.AddToCartPagetTest">
+      <class name="com.mystore.testcases.EndToEndTest">
         <methods>
-          <include name="addToCartTest" invocation-numbers="0"/>
           <include name="loadConfig"/>
           <include name="afterSuite"/>
-          <include name="setup"/>
           <include name="tearDown"/>
-        </methods>
-      </class> <!-- com.mystore.testcases.AddToCartPagetTest -->
-      <class name="com.mystore.testcases.LoginPageTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="loadConfig"/>
-          <include name="afterSuite"/>
-          <include name="loginTest" invocation-numbers="1"/>
+          <include name="endToEndTest"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.mystore.testcases.LoginPageTest -->
+      </class> <!-- com.mystore.testcases.EndToEndTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

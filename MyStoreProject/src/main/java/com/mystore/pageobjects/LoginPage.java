@@ -38,23 +38,23 @@ public class LoginPage extends BaseClass {
 		
 		//this method return to homepage
 		public HomePage login(String uname, String pswd) throws Throwable {
-			Action.type(userName, uname);
-			Action.type(password, pswd);
-			Action.click(getDriver(), signInBtn);
+			userName.sendKeys(uname); //Action.type(userName, uname);
+			password.sendKeys(pswd);  //Action.type(password, pswd);
+			signInBtn.click();   //Action.click(getDriver(), signInBtn);
 			return new HomePage();
 		}
 		
 		//this method return to Address page
 		public AddressPage login1(String uname, String pswd) throws Throwable {
-			Action.type(userName, uname);
-			Action.type(password, pswd);
-			Action.click(getDriver(), signInBtn);
+			userName.sendKeys(uname);  //Action.type(userName, uname);
+			password.sendKeys(pswd);		//Action.type(password, pswd);
+			signInBtn.click();          //Action.click(getDriver(), signInBtn);
 			return new AddressPage();
 		}
 		
 		public AccountCreationPage createNewAccount(String NewEmail) {
-			Action.type(emailForNewAccount, NewEmail);
-			Action.click(getDriver(), createNewAccountBtn);
+			emailForNewAccount.sendKeys(NewEmail);   //Action.type(emailForNewAccount, NewEmail);
+			createNewAccountBtn.click();    //Action.click(getDriver(), createNewAccountBtn);
 			return new AccountCreationPage();
 		}
 	

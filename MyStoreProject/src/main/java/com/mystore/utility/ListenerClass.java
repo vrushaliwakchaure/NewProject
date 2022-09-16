@@ -29,10 +29,10 @@ public class ListenerClass extends ExtentManager implements ITestListener{
 		test.createNode(result.getName());
 	}
 
-	public void onTestSuccess(ITestResult result) {
+	/*public void onTestSuccess(ITestResult result) {
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, "Pass Test case is: " + result.getName());
-			String imgPath = BaseClass.screenShot(BaseClass.getDriver(), result.getName());
+			/*String imgPath = BaseClass.screenShot(BaseClass.getDriver(), result.getName());
 			try {
 				test.addScreenCaptureFromPath(imgPath);
 				test.fail("ScreenShot is Attached", MediaEntityBuilder.createScreenCaptureFromPath(imgPath).build());
@@ -42,7 +42,7 @@ public class ListenerClass extends ExtentManager implements ITestListener{
 			}
 			
 		}
-	}
+	}*/
 
 	public void onTestFailure(ITestResult result) {
 		

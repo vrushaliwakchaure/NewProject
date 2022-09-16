@@ -25,7 +25,7 @@ public class AddressPage extends BaseClass{
 	}
 	
 	public ShippingPage clickOnCheckOut(){
-		Action.click(getDriver(), proceedToCheckOut);
+		proceedToCheckOut.click();//Action.click(getDriver(), proceedToCheckOut);
 		return new ShippingPage();
 	}	
 	

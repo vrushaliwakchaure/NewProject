@@ -46,7 +46,7 @@ public class AddToCartPage extends BaseClass{
 	}
 	
 	public void enterQuantity(String quantity1) throws Throwable{
-		Action.type(quantity, quantity1);
+		quantity.sendKeys(quantity1);  //Action.type(quantity, quantity1);
 	}
 	
 	public void selectSize(String size1) throws Throwable{

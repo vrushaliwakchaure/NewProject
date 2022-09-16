@@ -10,6 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.mystore.base.BaseClass;
+import com.mystore.dataprovider.DataProvider1;
 import com.mystore.pageobjects.AccountCreationPage;
 import com.mystore.pageobjects.AddToCartPage;
 import com.mystore.pageobjects.AddressPage;
@@ -21,6 +22,7 @@ import com.mystore.pageobjects.OrderSummary;
 import com.mystore.pageobjects.PaymentPage;
 import com.mystore.pageobjects.SearchResultPage;
 import com.mystore.pageobjects.ShippingPage;
+import com.mystore.utility.Log;
 
 /**
  * @author winma
@@ -54,14 +56,16 @@ public class EndToEndTest extends BaseClass{
 			getDriver().quit();
 		}
 		
-		@Test(groups="Regression")
-		public void endToEndTest() throws Throwable {
+		@Test(groups="Regression" ,dataProvider = "getProduct", dataProviderClass = DataProvider1.class)
+		public void endToEndTest(String productName, String qty, String size) throws Throwable {
+			
+			Log.startTestCase("EndToEnd Test");
 			
 			indexPage = new IndexPage();
-			searchResultPage=indexPage.searchProduct("t-shirt");
+			searchResultPage=indexPage.searchProduct(productName);
 			addToCartPage=searchResultPage.clickOnProduct();
-			addToCartPage.enterQuantity("2");
-			addToCartPage.selectSize("M");
+			addToCartPage.enterQuantity(qty);
+			addToCartPage.selectSize(size);
 			addToCartPage.clickOnAddToCart();
 			orderPage=addToCartPage.clickOnCheckOut();
 			loginPage= orderPage.clickOnCheckOut();
@@ -74,7 +78,9 @@ public class EndToEndTest extends BaseClass{
 			String actualMessage=orderConfirmationPage.validateConfirmMessage();
 			String expectedMessage="Your order on My Store is complete.";
 			Assert.assertEquals(actualMessage, expectedMessage);
+			Log.info("Actual and expected message is match ");
 			
+			Log.endTestCase("EndToEnd Test");
 			
 		}
 }

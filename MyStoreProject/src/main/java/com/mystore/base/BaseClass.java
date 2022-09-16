@@ -39,10 +39,10 @@ public class BaseClass {
 	
 	public void loadConfig() throws IOException {
 		
-		ExtentManager.setExtent();
-		DOMConfigurator.configure("log4j.xml");
 		//used this class to initialize log4j env using dom tree
-		
+		DOMConfigurator.configure("log4j.xml");
+		ExtentManager.setExtent();
+				
 		try {
 			prop = new Properties();
 			//System.out.println("Super Contructor invoked");

@@ -28,13 +28,16 @@ public class IndexPage extends BaseClass{
 	
 	//click on Sign In button
 	public LoginPage clickOnSignIn() throws Throwable {
-		Action.click(getDriver(), signInBtn);
+	//	Action.click(getDriver(), signInBtn);
+		signInBtn.click();
 		return new LoginPage();
 	}
 	
 	//validate logo on index page
 	public boolean validateLogo() throws Throwable {
-		return Action.isDisplayed(getDriver(), myStoreLogo);
+		//return Action.isDisplayed(getDriver(), myStoreLogo);
+		boolean test1= myStoreLogo.isDisplayed();
+		return test1;
 	}
 	
 	//verify the title of the page
@@ -45,8 +48,10 @@ public class IndexPage extends BaseClass{
 	
 	//search method for product search
 	public SearchResultPage searchProduct(String productName) {
-		Action.type(searchProductBox, productName);
-		Action.click(getDriver(), searchButton);
+		//Action.type(searchProductBox, productName);
+		searchProductBox.sendKeys(productName);
+		//Action.click(getDriver(), searchButton);
+		searchButton.click();
 		return new SearchResultPage();//reurn searchResult page so changed return type
 	}
 	

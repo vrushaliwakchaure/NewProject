@@ -25,6 +25,8 @@ public class AccountCreationPage extends BaseClass{
 	}
 	
 	public boolean validateAccountCreationPage() throws Throwable{
-		return Action.isDisplayed(getDriver(), formTitle);
+		//return Action.isDisplayed(getDriver(), formTitle);
+		boolean result = formTitle.isDisplayed();
+		return result;
 	}
 }
